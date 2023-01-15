@@ -1,0 +1,21 @@
+# Ignore artifacts:
+
+node_modules
+
+build
+
+dist
+
+.next
+
+tailwind.config.js
+
+tsconfig.json
+
+README.md
+
+postcss.config.js
+
+next.config.js
+
+next-env.d.ts
