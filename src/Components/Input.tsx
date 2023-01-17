@@ -2,7 +2,13 @@ import React, { FC } from 'react';
 import TextField from '@mui/material/TextField';
 import IInput from '@/Interfaces/IInput';
 
-const Input: FC<IInput> = ({ label, multilined, placeholder, type, onChange }) => {
+const Input: FC<IInput> = ({
+  label,
+  multilined,
+  placeholder,
+  type,
+  onChange,
+}) => {
   return (
     <TextField
       label={label}
@@ -10,6 +16,7 @@ const Input: FC<IInput> = ({ label, multilined, placeholder, type, onChange }) =
       placeholder={placeholder}
       type={type}
       variant="standard"
+      color="secondary"
       onChange={(e) => onChange(e.target.value)}
     />
   );
