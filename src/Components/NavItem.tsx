@@ -8,9 +8,9 @@ const NavItem: React.FC<INavItem> = ({ isActive, title, onClick }) => {
       onClick={onClick}
       className={`${
         isActive ? `${styles.navItem} text-gray-850` : 'text-white'
-      } px-16 min-w-[220px] font-medium py-4`}
+      } px-16 min-w-[220px] py-4`}
     >
-      {title}
+      <span className='text-sm'>{title}</span>
     </button>
   );
 };
