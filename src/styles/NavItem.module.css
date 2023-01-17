@@ -1,0 +1,6 @@
+.navItem {
+  background-image: url('/nav-item-bg.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+}
