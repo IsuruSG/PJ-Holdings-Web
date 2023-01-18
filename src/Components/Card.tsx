@@ -23,7 +23,7 @@ const Card: React.FC<ICard> = ({ heading, Icon, children, onClick }) => {
       ].join(' ')}`}
     >
       <section className="flex-1 w-full flex justify-center items-center">
-        <Icon className="h-28 w-28" />
+        <Icon className="!h-28 !w-28" />
       </section>
       <section className="w-full flex-1 flex flex-col md:space-y-4">
         <p className="text-center mx-3 text-xl md:text-2xl font-extrabold">
