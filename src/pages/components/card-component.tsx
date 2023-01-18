@@ -6,7 +6,7 @@ const CardComponent = () => {
   return (
     <div className="h-screen flex justify-center items-center space-x-4">
       <Card
-        onClick={() => console.log("You just clicked the card")}
+        onClick={() => console.log('You just clicked the card')}
         heading="Lorem Ipsum"
         Icon={Construction}
       >
