@@ -1,15 +1,11 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  Toolbar,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 import React, { useEffect, useState } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import IconButton from '@mui/material/IconButton';
+import List from '@mui/material/List'
+import Toolbar from '@mui/material/Toolbar';
+import MenuIcon from '@mui/icons-material/Menu';
 import NavItem from './NavItem';
 import IHeader from '@/Interfaces/IHeader';
 import Image from 'next/image';
@@ -60,9 +56,9 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
 
   return (
     <AppBar className={invisible ? 'bg-transparent' : 'overflow-hidden'}>
-      <Toolbar className="px-3 md:px-0 -my-1">
+      <Toolbar className="px-3 md:!-my-1">
         <IconButton
-          className="block md:hidden"
+          className='md:!hidden m-1 !flex'
           size="large"
           edge="start"
           color="inherit"
@@ -70,7 +66,7 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
           sx={{ mr: 2 }}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <MenuIcon />
+          <MenuIcon color='secondary' />
         </IconButton>
         <Box className="-space-x-9 hidden md:flex">
           <Image
