@@ -10,7 +10,7 @@ const NavItem: React.FC<INavItem> = ({ isActive, title, onClick }) => {
         isActive ? `${styles.navItem} text-gray-850` : 'text-white'
       } px-16 min-w-[220px] py-4`}
     >
-      <span className='text-sm'>{title}</span>
+      <span className='text-sm font-extrabold'>{title}</span>
     </button>
   );
 };
