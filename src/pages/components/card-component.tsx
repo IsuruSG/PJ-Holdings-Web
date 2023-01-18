@@ -1,5 +1,5 @@
 import Card from '@/Components/Card';
-import { Construction } from '@mui/icons-material';
+import Construction from '@mui/icons-material/Construction';
 import React from 'react';
 
 const CardComponent = () => {
