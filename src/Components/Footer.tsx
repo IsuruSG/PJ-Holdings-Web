@@ -26,13 +26,20 @@ const Footer = () => {
   );
 
   const servicesInfo = servicesList.map(
-    (service: {
-      title: string;
-      link: string;
-      description: string;
-      Icon: any;
-    }) => (
-      <Link className="hover:text-yellow-450 duration-200" href={service.link}>
+    (
+      service: {
+        title: string;
+        link: string;
+        description: string;
+        Icon: any;
+      },
+      index: number
+    ) => (
+      <Link
+        key={service.title + index}
+        className="hover:text-yellow-450 duration-200"
+        href={service.link}
+      >
         <service.Icon /> {service.title}
       </Link>
     )
