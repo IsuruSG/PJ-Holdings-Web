@@ -1,4 +1,10 @@
-import { Apartment, ApartmentRounded, ArchitectureRounded, CleaningServicesRounded, ConstructionRounded, LandscapeRounded, ManageAccountsRounded, Plumbing, PlumbingRounded } from "@mui/icons-material";
+import ApartmentRounded from "@mui/icons-material/ApartmentRounded";
+import ArchitectureRounded from "@mui/icons-material/ArchitectureRounded";
+import CleaningServicesRounded from "@mui/icons-material/CleaningServicesRounded";
+import ConstructionRounded from "@mui/icons-material/ConstructionRounded";
+import LandscapeRounded from "@mui/icons-material/LandscapeRounded";
+import ManageAccountsRounded from "@mui/icons-material/ManageAccountsRounded";
+import PlumbingRounded from "@mui/icons-material/PlumbingRounded";
 
 const servicesList: {title: string, link: string, description: string, Icon: any}[] = [
     {
