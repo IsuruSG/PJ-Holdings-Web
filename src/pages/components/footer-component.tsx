@@ -3,7 +3,9 @@ import Footer from '@/Components/Footer'
 
 const FooterComponent = () => {
   return (
-    <Footer></Footer>
+    <div>
+      <Footer />
+    </div>
   )
 }
 
