@@ -12,25 +12,25 @@ const Footer = () => {
   const contactInfo = () => (
     <div className="flex flex-col space-y-6">
       <span className="flex space-x-3">
-        <MailIcon className="fill-yellow-450" /> <span>info@pjholdings.eu</span>
+        <MailIcon className="text-yellow-450" /> <span>info@pjholdings.eu</span>
       </span>
       <span className="flex space-x-3">
         <Link
           target="_blank"
           href="https://www.facebook.com/profile.php?id=100087504332993"
         >
-          <FacebookIcon className="fill-yellow-450" />
+          <FacebookIcon className="text-yellow-450" />
         </Link>{' '}
         <span>PJ Holdings SIA</span>
       </span>
       <span className="flex space-x-3">
-        <CallIcon className="fill-yellow-450" /> <span>+371 28062741</span>
+        <CallIcon className="text-yellow-450" /> <span>+371 28062741</span>
       </span>
       <span className="flex space-x-3">
-        <WhatsAppIcon className="fill-yellow-450" /> <span>+371 28062741</span>
+        <WhatsAppIcon className="text-yellow-450" /> <span>+371 28062741</span>
       </span>
       <span className="flex space-x-3">
-        <LocationOnIcon className="fill-yellow-450" />{' '}
+        <LocationOnIcon className="text-yellow-450" />{' '}
         <span className="flex flex-col">
           <span>Matisa Lela 78A, Riga, LV-1009,</span> <span>Latvia</span>
         </span>
