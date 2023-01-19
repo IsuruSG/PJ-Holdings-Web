@@ -1,0 +1,5 @@
+.landing_page_bg {
+  background-image: url('/landing-page-image.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
