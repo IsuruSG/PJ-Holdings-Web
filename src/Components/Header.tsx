@@ -70,7 +70,7 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
         </IconButton>
         <Box className="-space-x-9 hidden md:flex">
           <Image
-            className="rounded-full p-2"
+            className="rounded-full mr-10 p-2"
             alt="PJ - Holdings"
             width={60}
             height={60}
