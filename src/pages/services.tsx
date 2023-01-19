@@ -6,9 +6,11 @@ import PageLayout from '@/Layouts/PageLayout';
 const Home = () => {
   return (
     <PageLayout>
-      <div className="mt-8">
+      <div>
         {servicesList.map((data, index) => (
           <div
+            id={`${data.title.toLocaleLowerCase().replace(/\s/g, '-')}`}
+            key={data.title + index}
             className={`${
               index % 2 === 0 ? 'bg-gray-850' : 'bg-yellow-450'
             } flex flex-col items-center`}
