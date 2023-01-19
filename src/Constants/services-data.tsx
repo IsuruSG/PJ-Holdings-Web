@@ -16,7 +16,7 @@ const servicesList: {
 }[] = [
   {
     title: 'Building Construction',
-    link: '',
+    link: '/services#building-construction',
     description:
       'This division covers all types of building construction, including new work, repairs, additions, alterations, prefabricated buildings, and temporary structures, such as dwellings, office buildings, stores, public and utility buildings, and farm buildings.',
     description_long: (
@@ -33,7 +33,7 @@ const servicesList: {
   },
   {
     title: 'Electrical & Plumbing Services',
-    link: '',
+    link: '/services#electrical-&-plumbing-services',
     description:
       'This group includes installation activities that support the functioning of a building as such, including installation of electrical systems, plumbing (water, gas and sewage systems), heat and air-conditioning systems, elevators etc.',
     description_long: (
@@ -51,7 +51,7 @@ const servicesList: {
   },
   {
     title: 'Building Completion & Finishing',
-    link: '',
+    link: '/services#building-completion-&-finishing',
     description:
       'Installation of fitted kitchens, staircases, shop fittings, and other interior finishes, as well as ceramic, concrete, or cut stone tiles in buildings or other construction projects.',
 
@@ -68,7 +68,7 @@ const servicesList: {
   },
   {
     title: 'Architectural Services',
-    link: '',
+    link: '/services#architectural-services',
     description:
       'This division provides a range of building design and construction services, such as surveying, mapping, inspection, and engineering as well as drafting, inspection, and inspection.',
 
@@ -85,7 +85,7 @@ const servicesList: {
   },
   {
     title: 'Management Consultancy Services',
-    link: '',
+    link: '/services#management-consultancy-services',
     description:
       'This class provides advice and assistance to businesses on management issues such as strategic planning, process reengineering, change management, cost reduction, and marketing, human resources, compensation, production scheduling and control planning.',
 
@@ -104,7 +104,7 @@ const servicesList: {
   },
   {
     title: 'Landscape Activities',
-    link: '',
+    link: '/services#landscape-activities',
     description:
       'This service provides care and maintenance of gardens and parks in private and public housing, public and semi-public buildings, including planting, watering, fertilizing, pruning, and overall aesthetic upkeep.',
 
@@ -122,7 +122,7 @@ const servicesList: {
   },
   {
     title: 'Cleaning Activities',
-    link: '',
+    link: '/services#cleaning-activities',
     description:
       'This service offers a wide range of cleaning services for buildings, including general interior and exterior cleaning, specialized cleaning activities, cleaning of industrial machinery, disinfecting and extermination, bottle cleaning, street sweeping, snow and ice removal.',
 
@@ -140,7 +140,7 @@ const servicesList: {
   },
   {
     title: 'Other Services',
-    link: '',
+    link: '/services#other-services',
     description:
       'This construction service specializes in specific aspects that are common to different types of structures, such as foundation work, roofing, masonry, electrical, and plumbing, utilizing specialized tools and expertise.',
 
