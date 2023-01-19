@@ -12,7 +12,8 @@ const Footer = () => {
   const contactInfo = () => (
     <div className="flex flex-col space-y-6">
       <span className="flex space-x-3">
-        <MailIcon className="fill-yellow-450" /> <span>info@pjholdings.eu</span>
+        <MailIcon className="text-yellow-450" />{' '}
+        <span>info.pjholdings@gmail.com</span>
       </span>
       <span className="flex space-x-3">
         <Link
