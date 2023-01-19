@@ -1,6 +1,6 @@
 import Card from '@/Components/Card';
 import Lottie from '@/Components/Lottie';
-import servicesList from '@/Constants/services';
+import servicesList from '@/Constants/services-data';
 import PageLayout from '@/Layouts/PageLayout';
 import styles from '@/styles/Home.module.css';
 import ArrowDown from '@/assets/lotties/arrowDown.json';
