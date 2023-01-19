@@ -9,7 +9,7 @@ const PageLayout: React.FC<IPageLayout> = ({ children }) => {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href="/logo-rounded.png" />
+        <link rel="shortcut icon" href="/logo-round.png" />
         <title>PJ Holdings</title>
       </Head>
       <Header itemList={navItems} />
