@@ -5,7 +5,7 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import CallIcon from '@mui/icons-material/Call';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import servicesList from '@/Constants/services';
+import servicesList from '@/Constants/services-data';
 import Link from 'next/link';
 
 const Footer = () => {
@@ -63,6 +63,7 @@ const Footer = () => {
     <div
       className={[
         'bg-gray-850/80',
+        'backdrop-blur-sm',
         'w-full',
         'flex',
         'space-y-10',
