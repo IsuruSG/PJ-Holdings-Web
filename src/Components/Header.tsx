@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import NavItem from './NavItem';
 import IHeader from '@/Interfaces/IHeader';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
   const [currentLink, setCurrentLink] = useState<string>('');
@@ -37,16 +38,17 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
         <section className="flex-auto h-4/6 flex flex-col space-y-3">
           {itemList.map(
             (item: { name: string; link: string }, index: number) => (
-              <button
+              <Link
                 key={item.name + index}
-                className={`px-12 mx-2 rounded-lg py-2 text-lg ${
+                href={item.link}
+                className={`px-12 text-center mx-2 rounded-lg py-2 text-lg ${
                   currentLink === item.link
                     ? 'bg-yellow-450 text-gray-850'
                     : 'border-yellow-450 border'
                 }`}
               >
                 {item.name}
-              </button>
+              </Link>
             )
           )}
         </section>
@@ -68,14 +70,16 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
         >
           <MenuIcon color="secondary" />
         </IconButton>
-        <Box className="-space-x-9 hidden md:flex">
+        <Box className="flex justify-center px-2 w-full md:w-fit md:min-w-fit">
           <Image
-            className="rounded-full mr-10 p-2"
+            className="rounded-full mr-12 md:mr-0 p-2"
             alt="PJ - Holdings"
             width={60}
             height={60}
             src="/logo.png"
           />
+        </Box>
+        <Box className="-space-x-9 hidden md:flex">
           {itemList.map(
             (item: { name: string; link: string }, index: number) => (
               <NavItem
