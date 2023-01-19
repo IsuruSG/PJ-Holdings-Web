@@ -52,6 +52,7 @@ const Footer = () => {
         key={service.title + index}
         className="hover:text-yellow-450 flex space-x-3 duration-200"
         href={service.link}
+        scroll={false}
       >
         <service.Icon className="text-yellow-450" />{' '}
         <span>{service.title}</span>
