@@ -71,13 +71,15 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
           <MenuIcon color="secondary" />
         </IconButton>
         <Box className="flex justify-center px-2 w-full md:w-fit md:min-w-fit">
-          <Image
-            className="rounded-full mr-12 md:mr-0 p-2"
-            alt="PJ - Holdings"
-            width={60}
-            height={60}
-            src="/logo.png"
-          />
+          <Link href="/">
+            <Image
+              className="rounded-full mr-12 md:mr-0 p-2"
+              alt="PJ - Holdings"
+              width={60}
+              height={60}
+              src="/logo.png"
+            />
+          </Link>
         </Box>
         <Box className="-space-x-9 hidden md:flex">
           {itemList.map(
