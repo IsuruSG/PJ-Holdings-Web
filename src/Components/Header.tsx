@@ -3,12 +3,13 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List'
+import List from '@mui/material/List';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
 import NavItem from './NavItem';
 import IHeader from '@/Interfaces/IHeader';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
   const [currentLink, setCurrentLink] = useState<string>('');
@@ -37,16 +38,17 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
         <section className="flex-auto h-4/6 flex flex-col space-y-3">
           {itemList.map(
             (item: { name: string; link: string }, index: number) => (
-              <button
+              <Link
                 key={item.name + index}
-                className={`px-12 mx-2 rounded-lg py-2 text-lg ${
+                href={item.link}
+                className={`px-12 text-center mx-2 rounded-lg py-2 text-lg ${
                   currentLink === item.link
                     ? 'bg-yellow-450 text-gray-850'
                     : 'border-yellow-450 border'
                 }`}
               >
                 {item.name}
-              </button>
+              </Link>
             )
           )}
         </section>
@@ -58,7 +60,7 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
     <AppBar className={invisible ? 'bg-transparent' : 'overflow-hidden'}>
       <Toolbar className="px-3 md:!-my-1">
         <IconButton
-          className='md:!hidden m-1 !flex'
+          className="md:!hidden m-1 !flex"
           size="large"
           edge="start"
           color="inherit"
@@ -66,18 +68,8 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
           sx={{ mr: 2 }}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <MenuIcon color='secondary' />
+          <MenuIcon color="secondary" />
         </IconButton>
-<<<<<<< Updated upstream
-        <Box className="-space-x-9 hidden md:flex">
-          <Image
-            className="rounded-full p-2"
-            alt="PJ - Holdings"
-            width={60}
-            height={60}
-            src="/logo.png"
-          />
-=======
         <Box className="flex justify-center px-2 w-full md:w-fit md:min-w-fit">
           <Link href="/">
             <Image
@@ -90,7 +82,6 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
           </Link>
         </Box>
         <Box className="-space-x-9 hidden md:flex">
->>>>>>> Stashed changes
           {itemList.map(
             (item: { name: string; link: string }, index: number) => (
               <NavItem
