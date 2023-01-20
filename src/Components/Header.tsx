@@ -68,6 +68,7 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
         >
           <MenuIcon color='secondary' />
         </IconButton>
+<<<<<<< Updated upstream
         <Box className="-space-x-9 hidden md:flex">
           <Image
             className="rounded-full p-2"
@@ -76,6 +77,20 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
             height={60}
             src="/logo.png"
           />
+=======
+        <Box className="flex justify-center px-2 w-full md:w-fit md:min-w-fit">
+          <Link href="/">
+            <Image
+              className="rounded-full mr-12 md:mr-0 p-2"
+              alt="PJ - Holdings"
+              width={60}
+              height={60}
+              src="/logo.png"
+            />
+          </Link>
+        </Box>
+        <Box className="-space-x-9 hidden md:flex">
+>>>>>>> Stashed changes
           {itemList.map(
             (item: { name: string; link: string }, index: number) => (
               <NavItem
