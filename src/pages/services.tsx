@@ -32,20 +32,21 @@ const Home = () => {
                 ></path>
               </svg>
             </div>
-            <h1
-              className={`${
-                index % 2 === 0 ? 'text-gray-150' : 'text-gray-850'
-              } font-bold pt-10`}
-            >
-              {data.title}
-            </h1>
-            <br />
-            <div
-              className={`${
-                index % 2 === 0 ? 'text-gray-150' : 'text-gray-850'
-              } px-14 pb-10`}
-            >
-              {data.description_long}
+            <div className="flex flex-col justify-center items-center space-y-7 py-20">
+              <h1
+                className={`${
+                  index % 2 === 0 ? 'text-gray-150' : 'text-gray-850'
+                } font-bold`}
+              >
+                {data.title}
+              </h1>
+              <div
+                className={`${
+                  index % 2 === 0 ? 'text-gray-150' : 'text-gray-850'
+                } px-14`}
+              >
+                {data.description_long}
+              </div>
             </div>
             <div className={`${styles.tiltTop} ${index % 2 === 1 && 'hidden'}`}>
               <svg
