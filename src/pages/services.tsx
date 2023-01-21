@@ -36,7 +36,7 @@ const Home = () => {
               <h1
                 className={`${
                   index % 2 === 0 ? 'text-gray-150' : 'text-gray-850'
-                } font-bold`}
+                } font-bold text-center w-full`}
               >
                 {data.title}
               </h1>
