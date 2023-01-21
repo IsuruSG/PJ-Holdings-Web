@@ -58,9 +58,9 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
 
   return (
     <AppBar className={invisible ? 'bg-transparent' : 'overflow-hidden'}>
-      <Toolbar className="px-3 md:!-my-1">
+      <Toolbar className="px-3 lg:!-my-1">
         <IconButton
-          className="md:!hidden m-1 !flex"
+          className="lg:!hidden m-1 !flex"
           size="large"
           edge="start"
           color="inherit"
@@ -70,10 +70,10 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
         >
           <MenuIcon color="secondary" />
         </IconButton>
-        <Box className="flex justify-center px-2 w-full md:w-fit md:min-w-fit">
+        <Box className="flex justify-center px-2 w-full lg:w-fit lg:min-w-fit">
           <Link href="/">
             <Image
-              className="rounded-full mr-12 md:mr-0 p-2"
+              className="rounded-full mr-12 lg:mr-0 p-2"
               alt="PJ - Holdings"
               width={60}
               height={60}
@@ -81,7 +81,7 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
             />
           </Link>
         </Box>
-        <Box className="-space-x-9 hidden md:flex">
+        <Box className="-space-x-9 hidden lg:flex">
           {itemList.map(
             (item: { name: string; link: string }, index: number) => (
               <NavItem
