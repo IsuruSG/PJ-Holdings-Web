@@ -22,7 +22,7 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
               <MailIcon className="text-yellow-450 text-4xl" />
               <section>
                 <div className="text-white">Email</div>
-                <div className="text-white/60">info@pjholdings.me</div>
+                <div className="text-white/60">info@pjholdings.eu</div>
               </section>
             </div>
             <div className="flex space-x-3 text-sm">
