@@ -5,7 +5,7 @@ import React from 'react';
 const contact = () => {
   return (
     <PageLayout>
-      <section className="flex flex-col justify-center items-center min-h-screen py-8">
+      <section className="flex flex-col justify-center items-center min-h-screen py-20">
         <span className="text-3xl mb-9 text-center font-black text-white lg:hidden">
           Contact Us
         </span>
