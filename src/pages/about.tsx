@@ -6,9 +6,9 @@ import PageLayout from '@/Layouts/PageLayout';
 const About = () => {
   return (
     <PageLayout>
-      <div className="flex flex-col min-h-screen bg-gray-850 pt-20 space-y-10">
+      <div className="flex flex-col min-h-screen bg-gray-850 pb-10 pt-24 space-y-10 justify-center">
         {aboutList.map((data, index) => (
-          <div className="flex h-56 ">
+          <div className="flex">
             <section className={index % 2 === 0 ? 'hidden' : 'block -mr-1'}>
               <svg
                 className="rotate-180"
@@ -27,17 +27,15 @@ const About = () => {
                 ></path>
               </svg>
             </section>
-            <section className="bg-yellow-450 w-full flex flex-col justify-between py-12 px-4 items-center">
+            <section className="bg-yellow-450 w-full flex flex-col justify-between py-8 space-y-6 px-4 items-center">
               <div className="text-center text-2xl font-black">
                 {data.title}
               </div>
-              <div
-                className={`${index % 2 === 1 ? 'text-right' : 'text-left'}`}
-              >
-                {data.description}
-              </div>
+              <div className={`text-center`}>{data.description}</div>
             </section>
-            <section className={index % 2 === 1 ? 'hidden' : 'block'}>
+            <section
+              className={`${index % 2 === 1 ? 'hidden' : 'block -ml-1'}`}
+            >
               <svg
                 id="visual"
                 height="100%"
@@ -62,11 +60,3 @@ const About = () => {
 };
 
 export default About;
-{
-  /* <div
-            className={`${styles.shape1} flex flex-col items-center font-bold my-12`}
-          >
-            <h1 className="text-xl">{data.title}</h1>
-            <div>{data.title}</div>
-          </div> */
-}
