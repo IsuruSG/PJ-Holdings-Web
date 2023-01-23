@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MailIcon from '@mui/icons-material/Mail';
 import Button from '@/Components/Button';
 import Input from '@/Components/Input';
@@ -7,6 +7,36 @@ import Call from '@mui/icons-material/Call';
 import LocationOn from '@mui/icons-material/LocationOn';
 
 const ContactCard: React.FC<IContactCard> = ({ children }) => {
+  const [name, setName] = useState<string>();
+  const [email, setEmail] = useState<string>();
+  const [subject, setSubject] = useState<string>();
+  const [message, setMessage] = useState<string>();
+
+  const handleSubmit = async () => {
+    console.log('pressed!');
+
+    const res = await fetch('/api/sendgrid', {
+      body: JSON.stringify({
+        email: email,
+        name: name,
+        subject: subject,
+        message: message,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    });
+
+    const { error } = await res.json();
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    alert('E-mail has sent!');
+  };
+
   return (
     <div className="flex w-full sm:space-x-4 justify-around sm:p-9 items-center rounded-2xl bg-[#232323]/80 backdrop-blur-sm">
       <section className="flex-1 hidden items-center lg:flex flex-col justify-between px-3 space-y-16">
@@ -45,38 +75,38 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
         </section>
       </section>
       <section className="flex-1 rounded-xl flex justify-center py-9 px-0 sm:px-2 items-center backdrop-blur">
-        <form className="flex w-full px-4 sm:px-0 sm:w-2/3 flex-col space-y-10">
+        <form
+          action="#"
+          onSubmit={() => handleSubmit()}
+          className="flex w-full px-4 sm:px-0 sm:w-2/3 flex-col space-y-10"
+        >
           <Input
-            onChange={(text) => console.log(text)}
+            onChange={(text) => setName(text)}
             type="text"
             label="Name"
             placeholder="Name"
           />
           <Input
-            onChange={(text) => console.log(text)}
+            onChange={(text) => setEmail(text)}
             type="email"
             label="E-mail Address"
             placeholder="E-mail Address"
           />
           <Input
-            onChange={(text) => console.log(text)}
+            onChange={(text) => setSubject(text)}
             type="text"
             label="Subject"
             placeholder="Subject"
           />
           <Input
-            onChange={(text) => console.log(text)}
+            onChange={(text) => setMessage(text)}
             type="text"
             label="Message"
             placeholder="Message"
             multilined
           />
           <div className="flex justify-center">
-            <Button
-              type="submit"
-              title="Send"
-              onClick={() => console.log('')}
-            />
+            <Button type="submit" title="Send" />
           </div>
         </form>
       </section>
