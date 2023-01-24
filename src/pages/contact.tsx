@@ -5,11 +5,11 @@ import React from 'react';
 const contact = () => {
   return (
     <PageLayout>
-      <section className="flex flex-col items-center justify-center min-h-screen py-20">
+      <section className="flex flex-col items-center justify-center min-h-screen pb-16 pt-28">
         <span className="text-3xl font-black text-center text-white mb-9 lg:hidden">
           Contact Us
         </span>
-        <div className="w-3/5">
+        <div className="w-4/5 sm:w-3/5">
           <ContactCard>
             At SIA PJ Holdings, we are committed to providing our clients with
             the highest level of service and support. Our dedicated team of
@@ -18,7 +18,7 @@ const contact = () => {
             client or just looking for more information, we're here to help.
             Please don't hesitate to reach out to us via phone, email or by
             filling out the contact form on our website. We look forward to
-            hearing from you and working with you on your next building project.
+            hearing from you and working with you on your next project.
           </ContactCard>
         </div>
       </section>
