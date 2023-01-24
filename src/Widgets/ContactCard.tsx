@@ -39,31 +39,31 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
 
   return (
     <div className="flex w-full sm:space-x-4 justify-around sm:p-9 items-center rounded-2xl bg-[#232323]/80 backdrop-blur-sm">
-      <section className="flex-1 hidden items-center lg:flex flex-col justify-between px-3 space-y-16">
-        <section className="flex-1 flex w-full flex-col">
-          <span className="text-3xl mb-9 text-center font-black text-white">
+      <section className="flex-col items-center justify-between flex-1 hidden px-3 space-y-9 lg:flex">
+        <section className="flex flex-col flex-1 w-full">
+          <span className="text-3xl font-black text-center text-white mb-9">
             Contact Us
           </span>
-          <span className="text-sm text-gray-150 text-center">{children}</span>
+          <span className="text-sm text-center text-gray-150">{children}</span>
         </section>
-        <section className="flex-1 flex flex-col items-center w-full">
-          <div className="flex flex-col space-y-8">
+        <section className="flex flex-col items-center flex-1 w-full">
+          <div className="flex flex-col space-y-4">
             <div className="flex space-x-3 text-sm">
-              <MailIcon className="text-yellow-450 text-4xl" />
+              <MailIcon className="text-4xl text-yellow-450" />
               <section>
                 <div className="text-white">Email</div>
                 <div className="text-white/60">info@pjholdings.eu</div>
               </section>
             </div>
             <div className="flex space-x-3 text-sm">
-              <Call className="text-yellow-450 text-4xl" />
+              <Call className="text-4xl text-yellow-450" />
               <section>
                 <div className="text-white">Phone</div>
                 <div className="text-white/60">+371 28062741</div>
               </section>
             </div>
             <div className="flex space-x-3 text-sm">
-              <LocationOn className="text-yellow-450 text-4xl" />
+              <LocationOn className="text-4xl text-yellow-450" />
               <section>
                 <div className="text-white">Phone</div>
                 <div className="text-white/60">
@@ -74,11 +74,11 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
           </div>
         </section>
       </section>
-      <section className="flex-1 rounded-xl flex justify-center py-9 px-0 sm:px-2 items-center backdrop-blur">
+      <section className="flex items-center justify-center flex-1 px-6 rounded-xl py-9 sm:px-2 backdrop-blur">
         <form
           action="#"
           onSubmit={() => handleSubmit()}
-          className="flex w-full px-4 sm:px-0 sm:w-2/3 flex-col space-y-10"
+          className="flex flex-col w-full px-4 space-y-10 sm:px-0 sm:w-2/3"
         >
           <Input
             onChange={(text) => setName(text)}
