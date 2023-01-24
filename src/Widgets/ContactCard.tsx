@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useForm, SubmitHandler } from "react-hook-form";
 import MailIcon from '@mui/icons-material/Mail';
 import Button from '@/Components/Button';
 import Input from '@/Components/Input';
@@ -7,20 +8,27 @@ import Call from '@mui/icons-material/Call';
 import LocationOn from '@mui/icons-material/LocationOn';
 
 const ContactCard: React.FC<IContactCard> = ({ children }) => {
-  const [name, setName] = useState<string>();
-  const [email, setEmail] = useState<string>();
-  const [subject, setSubject] = useState<string>();
-  const [message, setMessage] = useState<string>();
+  interface IContactForm{
+    name: string;
+    emailaddress: string;
+    subject: string;
+    message: string;
+  }
 
-  const handleSubmit = async () => {
+  const {register, handleSubmit, formState: {errors}} = useForm<IContactForm>();
+  const onSubmit: SubmitHandler<IContactForm> = data => {
+    // sendMail(data);
+  };
+
+  const sendMail = async (info: IContactForm) => {
     console.log('pressed!');
 
     const res = await fetch('/api/sendgrid', {
       body: JSON.stringify({
-        email: email,
-        name: name,
-        subject: subject,
-        message: message,
+        email: info.emailaddress,
+        name: info.name,
+        subject: info.subject,
+        message: info.message,
       }),
       headers: {
         'Content-Type': 'application/json',
@@ -77,29 +85,41 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
       <section className="flex items-center justify-center flex-1 px-6 rounded-xl py-9 sm:px-2 backdrop-blur">
         <form
           action="#"
-          onSubmit={() => handleSubmit()}
-          className="flex flex-col w-full px-4 space-y-10 sm:px-0 sm:w-2/3"
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex w-full px-4 sm:px-0 sm:w-2/3 flex-col space-y-10"
         >
           <Input
-            onChange={(text) => setName(text)}
+            error = {!!errors.name}
+            register={register}
+            helperText = "this field is required!"
+            validations={{required: true}}
             type="text"
             label="Name"
             placeholder="Name"
           />
           <Input
-            onChange={(text) => setEmail(text)}
+            error = {!!errors.emailaddress}
+            register={register}
+            helperText = "please enter a valid e-mail!"
+            validations={{required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}}
             type="email"
-            label="E-mail Address"
+            label="Email Address"
             placeholder="E-mail Address"
           />
           <Input
-            onChange={(text) => setSubject(text)}
+            error = {!!errors.subject}
+            register={register}
+            helperText = "this field is required!"
+            validations={{required: true}}
             type="text"
             label="Subject"
             placeholder="Subject"
           />
           <Input
-            onChange={(text) => setMessage(text)}
+            error = {!!errors.message}
+            register={register}
+            helperText = "this field is required!"
+            validations={{required: true}}
             type="text"
             label="Message"
             placeholder="Message"
