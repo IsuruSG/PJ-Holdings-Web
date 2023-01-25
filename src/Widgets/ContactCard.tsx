@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler } from 'react-hook-form';
 import MailIcon from '@mui/icons-material/Mail';
 import Button from '@/Components/Button';
 import Input from '@/Components/Input';
@@ -8,21 +8,23 @@ import Call from '@mui/icons-material/Call';
 import LocationOn from '@mui/icons-material/LocationOn';
 
 const ContactCard: React.FC<IContactCard> = ({ children }) => {
-  interface IContactForm{
+  interface IContactForm {
     name: string;
     emailaddress: string;
     subject: string;
     message: string;
   }
 
-  const {register, handleSubmit, formState: {errors}} = useForm<IContactForm>();
-  const onSubmit: SubmitHandler<IContactForm> = data => {
-    // sendMail(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IContactForm>();
+  const onSubmit: SubmitHandler<IContactForm> = (data) => {
+    sendMail(data);
   };
 
   const sendMail = async (info: IContactForm) => {
-    console.log('pressed!');
-
     const res = await fetch('/api/sendgrid', {
       body: JSON.stringify({
         email: info.emailaddress,
@@ -41,7 +43,6 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
       console.error(error);
       return;
     }
-
     alert('E-mail has sent!');
   };
 
@@ -86,40 +87,43 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
         <form
           action="#"
           onSubmit={handleSubmit(onSubmit)}
-          className="flex w-full px-4 sm:px-0 sm:w-2/3 flex-col space-y-10"
+          className="flex flex-col w-full px-4 space-y-10 sm:px-0 sm:w-2/3"
         >
           <Input
-            error = {!!errors.name}
+            error={!!errors.name}
             register={register}
-            helperText = "this field is required!"
-            validations={{required: true}}
+            helperText="this field is required!"
+            validations={{ required: true }}
             type="text"
             label="Name"
             placeholder="Name"
           />
           <Input
-            error = {!!errors.emailaddress}
+            error={!!errors.emailaddress}
             register={register}
-            helperText = "please enter a valid e-mail!"
-            validations={{required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}}
+            helperText="please enter a valid e-mail!"
+            validations={{
+              required: true,
+              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            }}
             type="email"
             label="Email Address"
             placeholder="E-mail Address"
           />
           <Input
-            error = {!!errors.subject}
+            error={!!errors.subject}
             register={register}
-            helperText = "this field is required!"
-            validations={{required: true}}
+            helperText="this field is required!"
+            validations={{ required: true }}
             type="text"
             label="Subject"
             placeholder="Subject"
           />
           <Input
-            error = {!!errors.message}
+            error={!!errors.message}
             register={register}
-            helperText = "this field is required!"
-            validations={{required: true}}
+            helperText="this field is required!"
+            validations={{ required: true }}
             type="text"
             label="Message"
             placeholder="Message"
