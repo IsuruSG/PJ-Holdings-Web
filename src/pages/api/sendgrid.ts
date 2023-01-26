@@ -10,28 +10,63 @@ async function sendEmail(req: any, res: any) {
       from: 'info@pjholdings.eu', // your website email address here
       subject: `${req.body.subject}`,
       html: `
-      <div style="background-color: #f3a904; border-radius: 12px; padding: 20px; display:flex; justify-content: center;">
-        <div style="width: 60%; border: 2px solid white; border-radius: 12px; padding-left: 20px; padding-right: 20px;">
-          <div style="text-align: center;">
-            <h3 style="color:#1A1A1A; font-size: 28px">Contact Us Form Submission</h3>
-          </div>
-          <div style="margin-top: 24px">
-            <div>
-              <p style="color:#565656; margin-top: 16px"><span style="font-weight: 700; color:white;">Name :</span>${
-                ' ' + req.body.name
-              }</p>
-              <p style="color:#565656; margin-top: 16px"><span style="font-weight: 700; color:white;">Email :</span>${
-                ' ' + req.body.email
-              }</p>
+      <div
+      style="
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        background-color: #1A1A1A;
+      ">
+        <div
+          style="
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          ">
+          <div>
+            <p
+              style="
+                text-align: center;
+                color: aliceblue;
+                font-size: 24px;
+                font-weight: 600;
+              ">
+              New Contact Form Submission
+            </p>
+            <p style="color: aliceblue; font-size: large; font-style: italic">
+              A new contact form submission has been received on your website. The
+              details of the submission are as follows
+            </p>
+            <div
+              style="
+                width: 55%;
+                color: #f3a904;
+                padding: 8px 0px 8px 20px;
+                font-size: 18px;
+              ">
+              <p>
+                Name : <span style="color: aliceblue; font-weight: 300">${req.body.name}</span>
+              </p>
+              <p>
+                Email : <span style="color: aliceblue; font-weight: 300">${req.body.email}</span>
+              </p>
+              <p>
+                Subject :
+                <span style="color: aliceblue; font-weight: 300">${req.body.subject}</span>
+              </p>
+              <p>
+                Message :
+                <span style="color: aliceblue; font-weight: 300">${req.body.message}</span>
+              </p>
             </div>
-            <div style="margin-top: 16px">
-              <p style="color:#565656;"><span style="font-weight: 700; color:white;">Subject :</span>${
-                ' ' + req.body.subject
-              }</p>
-              <p style="color:#565656;"><span style="font-weight: 700; color:white;">Message :</span>${
-                ' ' + req.body.message
-              }</p>
-            </div>
+            <p style="color: aliceblue; font-size: large; font-style: italic">
+              Please review and respond to the submission as soon as possible.
+            </p>
+            <p style="color: aliceblue; font-size: large; font-style: italic">
+              Thank you,<br />
+              PJ Holdings.
+            </p>
           </div>
         </div>
       </div>`,
