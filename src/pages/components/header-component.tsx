@@ -5,7 +5,7 @@ import React from 'react';
 const HeaderComponent = () => {
   return (
     <div>
-      <Header itemList={navItems} />
+      <Header opacity={1} itemList={navItems} />
     </div>
   );
 };

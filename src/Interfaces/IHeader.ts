@@ -1,6 +1,6 @@
 interface IHeader {
   itemList: { name: string; link: string }[];
-  invisible?: boolean;
+  opacity: number;
 }
 
 export default IHeader;
