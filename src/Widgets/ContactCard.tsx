@@ -6,8 +6,15 @@ import Input from '@/Components/Input';
 import IContactCard from '@/Interfaces/IContactCard';
 import Call from '@mui/icons-material/Call';
 import LocationOn from '@mui/icons-material/LocationOn';
+import Dialog from '@mui/material/Dialog';
+import Lottie from '@/Components/Lottie';
+import Success from '@/assets/lotties/success.json';
+import Error from '@/assets/lotties/error.json';
 
 const ContactCard: React.FC<IContactCard> = ({ children }) => {
+  const [success, setSuccess] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
   interface IContactForm {
     name: string;
     emailaddress: string;
@@ -41,9 +48,10 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
     const { error } = await res.json();
     if (error) {
       console.error(error);
+      setError(true);
       return;
     }
-    alert('E-mail has sent!');
+    setSuccess(true);
   };
 
   return (
@@ -133,6 +141,29 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
             <Button type="submit" title="Send" />
           </div>
         </form>
+        <Dialog
+          open={success || error}
+          onClose={() => {
+            setSuccess(false);
+            setError(false);
+          }}
+        >
+          <section className="p-10 flex flex-col lg:flex-row justify-center items-center">
+            <div className="flex-1">
+              <Lottie source={success ? Success : Error} />
+            </div>
+            <div className="text-white flex-1 text-2xl text-center">
+              {success ? (
+                'Your message has sent!'
+              ) : (
+                <section className="flex flex-col">
+                  <span className="text-xl">Something Went Wrong!</span>
+                  <span>Please Try Again!</span>
+                </section>
+              )}
+            </div>
+          </section>
+        </Dialog>
       </section>
     </div>
   );
