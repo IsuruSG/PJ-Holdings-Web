@@ -1,28 +1,37 @@
 import React, { useState } from 'react';
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler } from 'react-hook-form';
 import MailIcon from '@mui/icons-material/Mail';
 import Button from '@/Components/Button';
 import Input from '@/Components/Input';
 import IContactCard from '@/Interfaces/IContactCard';
 import Call from '@mui/icons-material/Call';
 import LocationOn from '@mui/icons-material/LocationOn';
+import Dialog from '@mui/material/Dialog';
+import Lottie from '@/Components/Lottie';
+import Success from '@/assets/lotties/success.json';
+import Error from '@/assets/lotties/error.json';
 
 const ContactCard: React.FC<IContactCard> = ({ children }) => {
-  interface IContactForm{
+  const [success, setSuccess] = useState<boolean>(false);
+  const [error, setError] = useState<boolean>(false);
+
+  interface IContactForm {
     name: string;
     emailaddress: string;
     subject: string;
     message: string;
   }
 
-  const {register, handleSubmit, formState: {errors}} = useForm<IContactForm>();
-  const onSubmit: SubmitHandler<IContactForm> = data => {
-    // sendMail(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IContactForm>();
+  const onSubmit: SubmitHandler<IContactForm> = (data) => {
+    sendMail(data);
   };
 
   const sendMail = async (info: IContactForm) => {
-    console.log('pressed!');
-
     const res = await fetch('/api/sendgrid', {
       body: JSON.stringify({
         email: info.emailaddress,
@@ -39,10 +48,10 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
     const { error } = await res.json();
     if (error) {
       console.error(error);
+      setError(true);
       return;
     }
-
-    alert('E-mail has sent!');
+    setSuccess(true);
   };
 
   return (
@@ -86,40 +95,43 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
         <form
           action="#"
           onSubmit={handleSubmit(onSubmit)}
-          className="flex w-full px-4 sm:px-0 sm:w-2/3 flex-col space-y-10"
+          className="flex flex-col w-full px-4 space-y-10 sm:px-0 sm:w-2/3"
         >
           <Input
-            error = {!!errors.name}
+            error={!!errors.name}
             register={register}
-            helperText = "this field is required!"
-            validations={{required: true}}
+            helperText="this field is required!"
+            validations={{ required: true }}
             type="text"
             label="Name"
             placeholder="Name"
           />
           <Input
-            error = {!!errors.emailaddress}
+            error={!!errors.emailaddress}
             register={register}
-            helperText = "please enter a valid e-mail!"
-            validations={{required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}}
+            helperText="please enter a valid e-mail!"
+            validations={{
+              required: true,
+              pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            }}
             type="email"
             label="Email Address"
             placeholder="E-mail Address"
           />
           <Input
-            error = {!!errors.subject}
+            error={!!errors.subject}
             register={register}
-            helperText = "this field is required!"
-            validations={{required: true}}
+            helperText="this field is required!"
+            validations={{ required: true }}
             type="text"
             label="Subject"
             placeholder="Subject"
           />
           <Input
-            error = {!!errors.message}
+            error={!!errors.message}
             register={register}
-            helperText = "this field is required!"
-            validations={{required: true}}
+            helperText="this field is required!"
+            validations={{ required: true }}
             type="text"
             label="Message"
             placeholder="Message"
@@ -129,6 +141,29 @@ const ContactCard: React.FC<IContactCard> = ({ children }) => {
             <Button type="submit" title="Send" />
           </div>
         </form>
+        <Dialog
+          open={success || error}
+          onClose={() => {
+            setSuccess(false);
+            setError(false);
+          }}
+        >
+          <section className="p-10 flex flex-col lg:flex-row justify-center items-center">
+            <div className="flex-1">
+              <Lottie source={success ? Success : Error} />
+            </div>
+            <div className="text-white flex-1 text-2xl text-center">
+              {success ? (
+                'Your message has sent!'
+              ) : (
+                <section className="flex flex-col">
+                  <span className="text-xl">Something Went Wrong!</span>
+                  <span>Please Try Again!</span>
+                </section>
+              )}
+            </div>
+          </section>
+        </Dialog>
       </section>
     </div>
   );
