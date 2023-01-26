@@ -26,16 +26,18 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
   const drawerBox = () => (
     <Box className="h-full">
       <List className="flex flex-col h-full">
-        <section className="flex-auto h-2/6 flex justify-center items-center">
-          <Image
-            className="rounded-full"
-            alt="PJ - Holdings"
-            width={100}
-            height={100}
-            src="/logo.png"
-          />
+        <section className="flex items-center justify-center flex-auto h-2/6">
+          <Link href="/">
+            <Image
+              className="rounded-full"
+              alt="PJ - Holdings"
+              width={100}
+              height={100}
+              src="/logo.png"
+            />
+          </Link>
         </section>
-        <section className="flex-auto h-4/6 flex flex-col space-y-3">
+        <section className="flex flex-col flex-auto space-y-3 h-4/6">
           {itemList.map(
             (item: { name: string; link: string }, index: number) => (
               <Link
@@ -70,10 +72,10 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
         >
           <MenuIcon color="secondary" />
         </IconButton>
-        <Box className="flex justify-center px-2 w-full lg:w-fit lg:min-w-fit">
+        <Box className="flex justify-center w-full px-2 lg:w-fit lg:min-w-fit">
           <Link href="/">
             <Image
-              className="rounded-full mr-12 lg:mr-0 p-2"
+              className="p-2 mr-12 rounded-full lg:mr-0"
               alt="PJ - Holdings"
               width={60}
               height={60}
@@ -81,7 +83,7 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
             />
           </Link>
         </Box>
-        <Box className="-space-x-9 hidden lg:flex">
+        <Box className="hidden -space-x-9 lg:flex">
           {itemList.map(
             (item: { name: string; link: string }, index: number) => (
               <NavItem
