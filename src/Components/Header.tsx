@@ -11,7 +11,7 @@ import IHeader from '@/Interfaces/IHeader';
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
+const Header: React.FC<IHeader> = ({ itemList, opacity }) => {
   const [currentLink, setCurrentLink] = useState<string>('');
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -59,7 +59,13 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
   );
 
   return (
-    <AppBar className={invisible ? 'bg-transparent' : 'overflow-hidden'}>
+    <AppBar
+      elevation={0}
+      sx={{
+        backgroundColor: `rgba(26, 26, 26, ${opacity})`,
+        boxShadow: `rgba(0, 0, 0, ${opacity}) 0px 2px 10px`,
+      }}
+    >
       <Toolbar className="px-3 lg:!-my-1">
         <IconButton
           className="lg:!hidden m-1 !flex"
@@ -88,6 +94,7 @@ const Header: React.FC<IHeader> = ({ itemList, invisible }) => {
             (item: { name: string; link: string }, index: number) => (
               <NavItem
                 onClick={() => onSelected(item.link)}
+                scroll={opacity}
                 key={item.name + index}
                 title={item.name}
                 isActive={currentLink === item.link}
