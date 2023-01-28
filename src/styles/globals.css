@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+
+
+@media only screen and (min-width: 1024px) {
+  body {
   background-image: url('/main-bg.png');
   background-repeat: no-repeat;
   background-size: auto;
   background-attachment: fixed;
+}
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    background-color: #1a1a1a;
+  }
 }
