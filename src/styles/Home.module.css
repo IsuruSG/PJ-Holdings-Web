@@ -1,6 +1,7 @@
 .landing_page_bg {
   background-image: url('/landing-page-image.jpeg');
-  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
